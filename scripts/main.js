@@ -7,7 +7,7 @@ $(document).ready(function (e) {
         let height = Number(($('#height').val()).replace(",", "."))
         let weight = Number($('#weight').val().replace(",", "."))
         let gender = $('#gender').val()
-        let invalidDatas = height > 2.5 || weight > 300 || typeof height == 'string' || typeof weight == 'string'
+        let invalidDatas = height > 2.5 || weight > 300 || isNaN(height) || isNaN(weight)
         let emptyFields = height == '' || weight == '' || gender == ''
         let getImc = (w, h) => {return (w/(Math.pow(h, 2))).toFixed(2)}//calc function
 
