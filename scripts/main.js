@@ -14,13 +14,14 @@ $(document).ready(function (e) {
         /* ============== start validations tests =============================== */
         if (!invalidDatas && !emptyFields) {
             alert('ok')
+            getImc()
         } else
             if (invalidDatas) {
-                alert('invalid datas')
+                errorMsg()
             } else {
-                alert('fill all fields')
+                errorMsg()
             }
-       
+
         clearFileds()
 
     });
@@ -32,12 +33,10 @@ $(document).ready(function (e) {
 
     });
 
-
-
 });
 
 /* =================== error mensage: invalid datas or empty fields =============*/
-function errorMsg () {
+function errorMsg() {
 
 
 

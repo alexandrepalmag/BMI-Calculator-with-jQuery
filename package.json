@@ -1,0 +1,25 @@
+{
+  "name": "bmi_calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrepalmag/BMI-Calculator-with-jQuery.git"
+  },
+  "author": "Alexandre Palma Gonçalves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandrepalmag/BMI-Calculator-with-jQuery/issues"
+  },
+  "homepage": "https://github.com/alexandrepalmag/BMI-Calculator-with-jQuery#readme",
+  "dependencies": {
+    "sweetalert2": "^9.17.1"
+  }
+}
