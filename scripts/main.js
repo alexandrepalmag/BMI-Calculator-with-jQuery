@@ -3,40 +3,61 @@ $(document).ready(function (e) {
     $('#form-id').on('submit', function (e) {
 
         e.preventDefault()
-        
-        let height = $('#height').val()
-        let weight = $('#weight').val()
+
+        let height = Number($('#height').val())
+        let weight = Number($('#weight').val())
         let gender = $('#gender').val()
         let result = ''
         let invalidDatas = height > 2.5 || weight > 300
         let emptyFields = height == '' || weight == '' || gender == ''
 
+        console.log(height, weight)
+
+
         /* ============== start validations tests =============================== */
-        switch(true) {
-            case invalidDatas: 
-            alert('valores inválidos')
-            console.log('erro')
-            break
-
-            case emptyFields:
+        if (!invalidDatas && !emptyFields) {
+            alert('ok')
+        } else
+            if (invalidDatas) {
+                alert('invalid datas')
+            } else {
                 alert('fill all fields')
-            default:
-                return false
-        }
-        /* ============== end validations tests =============================== */
+            }
+       
 
-        result = h
+        clearFileds()
 
-        
     });
 
-     /* ============== start clear button action =============================== */
-        $('#clear-btn').on('click', function () {
-            
-            $('#form-id [name]').val('');
+    /* ============== start clear button action =============================== */
+    $('#clear-btn').on('click', function () {
 
-        });
+        clearFileds()
 
-     /* ============== end clear button action =============================== */
+    });
+
+
 
 });
+
+/* =================== error mensage: invalid datas or empty fields =============*/
+function errorMsg () {
+
+
+
+}
+
+
+/* =================== this funtion clear the fields =============*/
+function clearFileds() {
+
+    $('#form-id [name]').val('');
+
+}
+
+function getImc() {
+
+
+
+}
+
