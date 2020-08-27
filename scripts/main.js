@@ -4,15 +4,12 @@ $(document).ready(function (e) {
 
         e.preventDefault()
 
-        let height = Number($('#height').val())
-        let weight = Number($('#weight').val())
+        let height = Number(($('#height').val()).replace(",", "."))
+        let weight = Number($('#weight').val().replace(",", "."))
         let gender = $('#gender').val()
         let result = ''
         let invalidDatas = height > 2.5 || weight > 300
         let emptyFields = height == '' || weight == '' || gender == ''
-
-        console.log(height, weight)
-
 
         /* ============== start validations tests =============================== */
         if (!invalidDatas && !emptyFields) {
@@ -24,7 +21,6 @@ $(document).ready(function (e) {
                 alert('fill all fields')
             }
        
-
         clearFileds()
 
     });
