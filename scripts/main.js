@@ -7,41 +7,45 @@ $(document).ready(function (e) {
         let height = Number(($('#height').val()).replace(",", "."))
         let weight = Number($('#weight').val().replace(",", "."))
         let gender = $('#gender').val()
-        let result = ''
-        let invalidDatas = height > 2.5 || weight > 300
+        let invalidDatas = height > 2.5 || weight > 300 || typeof height == 'string' || typeof weight == 'string'
         let emptyFields = height == '' || weight == '' || gender == ''
+        let getImc = (w, h) => {return (w/(Math.pow(h, 2))).toFixed(2)}//calc function
 
         /* ============== start validations tests =============================== */
         if (!invalidDatas && !emptyFields) {
-            alert('ok')
-            getImc()
+           let result = getImc(weight, height)
+
+            successMsg (result, gender)
+
         } else
             if (invalidDatas) {
-                errorMsg()
+                errorMsg('Invalid data!')
             } else {
-                errorMsg()
+                errorMsg('Fill in all the fields on the form!')
             }
 
-        clearFileds()
-
-    });
-
-    /* ============== start clear button action =============================== */
-    $('#clear-btn').on('click', function () {
-
-        clearFileds()
-
+            clearFileds()
     });
 
 });
 
+/* ============== start clear button action =============================== */
+$('#clear-btn').on('click', function () {
+
+    clearFileds()
+
+});
+
 /* =================== error mensage: invalid datas or empty fields =============*/
-function errorMsg() {
+function errorMsg(err) {
 
-
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `${err}`,
+      })
 
 }
-
 
 /* =================== this funtion clear the fields =============*/
 function clearFileds() {
@@ -50,9 +54,9 @@ function clearFileds() {
 
 }
 
-function getImc() {
+function successMsg (finalResult, genderAll) { 
+    console.log(finalResult, genderAll)
 
-
-
-}
+    alert(finalResult, genderAll)
+ }
 
