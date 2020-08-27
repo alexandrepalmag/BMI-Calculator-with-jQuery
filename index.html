@@ -32,20 +32,17 @@
                     </div>
                     <div class="col-6 container-fluid" style="background: #f8f4f4; padding: 10px;">
                         <div class="container"></div>
-                        <!-- start of form -->
-                        <form>
+                        <!-- start of form https://indicedemassacorporal.com/tabela-imc.html -->
+                        <form id="form-id">
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Age" autofocus>
+                                    <input type="text" class="form-control" placeholder="Height" name="height" id="height" autofocus required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Height">
+                                    <input type="text" class="form-control" placeholder="Weight" name="weight" id="weight" required>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Weight">
-                                </div>
-                                <div class="col">
-                                    <select class="form-control">
+                                    <select class="form-control" name="gender" id="gender">
                                         <option value="" selected>Gender</option>
                                         <option value="male">male</option>
                                         <option value="male">female</option>
@@ -54,8 +51,8 @@
                             </div>
                             <br>
                             <div class="container">
-                                <button class="btn btn-danger mb-2 mr-sm-2" type="button">Clear</button>
-                                <button class="btn btn-info mb-2 mr-sm-2" type="submit">Calculate</button>
+                                <button class="btn btn-danger mb-2 mr-sm-2" type="button" id="clear-btn">Clear</button>
+                                <button class="btn btn-info mb-2 mr-sm-2" type="submit" id="send">Calculate</button>
                             </div>
                         </form>
                         <!-- end of form -->
