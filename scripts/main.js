@@ -68,14 +68,12 @@ function successMsgMale (finalResult) {
 
     alert('male')
 
-
  }
 
  function successMsgFemale (finalResult) { 
     console.log(finalResult)
 
     alert('female')
-
 
  }
 
