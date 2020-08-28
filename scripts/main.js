@@ -10,12 +10,13 @@ $(document).ready(function (e) {
         let invalidDatas = height > 2.5 || weight > 300 || isNaN(height) || isNaN(weight)
         let emptyFields = height == '' || weight == '' || gender == ''
         let getImc = (w, h) => {return (w/(Math.pow(h, 2))).toFixed(2)}//calc function
+        let result = ''
 
         /* ============== start validations tests =============================== */
         if (!invalidDatas && !emptyFields) {
-           let result = getImc(weight, height)
+           result = getImc(weight, height)
 
-            successMsg (result, gender)
+           successMsg (result, gender)
 
         } else
             if (invalidDatas) {
@@ -54,9 +55,27 @@ function clearFileds() {
 
 }
 
-function successMsg (finalResult, genderAll) { 
-    console.log(finalResult, genderAll)
+function successMsg(finalResult, genderAll) { 
+    if(genderAll == 'male' && finalResult != '') {
+        successMsgMale(finalResult)
+    } else {
+        successMsgFemale(finalResult)
+    }
+ }
 
-    alert(finalResult, genderAll)
+function successMsgMale (finalResult) { 
+    console.log(finalResult)
+
+    alert('male')
+
+
+ }
+
+ function successMsgFemale (finalResult) { 
+    console.log(finalResult)
+
+    alert('female')
+
+
  }
 
