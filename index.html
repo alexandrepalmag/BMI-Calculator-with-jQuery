@@ -36,10 +36,12 @@
                         <form id="form-id">
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Height (meters)" name="height" id="height" autofocus>
+                                    <input type="text" class="form-control" placeholder="Height (meters)" name="height"
+                                        id="height" autofocus>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Weight (kg)" name="weight" id="weight">
+                                    <input type="text" class="form-control" placeholder="Weight (kg)" name="weight"
+                                        id="weight">
                                 </div>
                                 <div class="col">
                                     <select class="form-control" name="gender" id="gender">
@@ -76,18 +78,46 @@
                     </h2>
                 </span>
                 <hr>
-                <div>
-                    <div id="typepass">
-                        <h4>
-
-                        </h4>
-                        <br>
-                        <div id="strengthResult">
-
+                <div class="container">
+                    <div id="alertResult">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- grid result -->
+                    <div id="gridResult" class="container">
+                        <div class="row" style="width: 60%;margin-left: 20%;">
+                            <div class="col-4">
+                                <div class="row" style="background: #a3a3cf;"><h6>Category</h6></div>
+                                <div class="row" style="background: #f3f3f5;">Under weight</div>
+                                <div class="row" style="background: #f3f3f5;">Ideal weight</div>
+                                <div class="row" style="background: #f3f3f5;">Slightly overweight</div>
+                                <div class="row" style="background: #f3f3f5;">Overweight</div>
+                                <div class="row" style="background: #f3f3f5;">Obesity</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="row" style="background: #a3a3cf;"><h6>IMC Reference(Famale)</h6></div>
+                                <div class="row" style="background: #f3f3f5;">below 19.1</div>
+                                <div class="row" style="background: #f3f3f5;">19.1-25.8</div>
+                                <div class="row" style="background: #f3f3f5;">25.9-27.3</div>
+                                <div class="row" style="background: #f3f3f5;">27.4-32.3</div>
+                                <div class="row" style="background: #f3f3f5;">32.4 and above</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="row" style="background: #a3a3cf;"><h6>IMC Reference(Male)</h6></div>
+                                <div class="row" style="background: #f3f3f5;">below 20.7</div>
+                                <div class="row" style="background: #f3f3f5;">20.7-26.4</div>
+                                <div class="row" style="background: #f3f3f5;">26.5-27.8</div>
+                                <div class="row" style="background: #f3f3f5;">27.9-31.1</div>
+                                <div class="row" style="background: #f3f3f5;">31.2 and above</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><!-- en card-body -->
         </div>
     </div>
     </div>
