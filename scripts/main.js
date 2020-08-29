@@ -56,38 +56,56 @@ function clearFileds() {
 }
 
 function successMsgMale(resultMale) {
-    
 
+    if(resultMale > 31.1) {
+        rendering(resultMale, 'Obsesity', 'danger')
+    }else
+        if(resultMale > 27.8 && resultMale < 31.2) {
+            rendering(resultMale, 'Overweight', 'warning')
+        }else
+            if(resultMale > 26.4 && resultMale < 27.9) {
+                rendering(resultMale, 'Slightly overweight', 'info')
+        }else
+            if(resultMale < 20.7) {
+                rendering(resultMale, 'Under weight', 'danger')
+            }else{
+                rendering(resultMale, 'Ideal weight', 'success')
+            }
+    
 }
 
 function successMsgFemale(resultFemale) {
-    $('#alertResult').html(
-        `
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>${resultFemale}</strong> You should check in on some of those fields below.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
 
-        `
-);
+    if(resultFemale > 32.3) {
+        rendering(resultFemale, 'Obsesity', 'danger')
+    }else
+        if(resultFemale > 27.3 && resultFemale < 32.4) {
+            rendering(resultFemale, 'Overweight', 'warning')
+        }else
+            if(resultFemale > 25.8 && resultFemale < 27.4) {
+                rendering(resultFemale, 'Slightly overweight', 'info')
+        }else
+            if(resultFemale < 19.1) {
+                rendering(resultFemale, 'Under weight', 'danger')
+            }else{
+                rendering(resultFemale, 'Ideal weight', 'success')
+            }
 
 }
 
-function rendering() {
+function rendering(resRender, category, color) {
 
     $('#alertResult').html(
         `
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>${resultMale}</strong> You should check in on some of those fields below.
+        <div class="alert alert-${color} alert-dismissible fade show" role="alert">
+        <strong>Your BMI: ${resRender}</strong> - Category: ${category}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
 
         `
-);
+    );
 
 }
 
