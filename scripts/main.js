@@ -9,14 +9,14 @@ $(document).ready(function (e) {
         let gender = $('#gender').val()
         let invalidDatas = height > 2.5 || weight > 300 || isNaN(height) || isNaN(weight)
         let emptyFields = height == '' || weight == '' || gender == ''
-        let getImc = (w, h) => {return (w/(Math.pow(h, 2))).toFixed(2)}//calc function
+        let getImc = (w, h) => { return (w / (Math.pow(h, 2))).toFixed(2) }//calc function
         let result = ''
 
         /* ============== start validations tests =============================== */
         if (!invalidDatas && !emptyFields) {
-           result = getImc(weight, height)
+            result = getImc(weight, height)
 
-           successMsg (result, gender)
+            gender == 'male' ? (successMsgMale(result)) : (successMsgFemale(result))
 
         } else
             if (invalidDatas) {
@@ -25,7 +25,7 @@ $(document).ready(function (e) {
                 errorMsg('Fill in all the fields on the form!')
             }
 
-            clearFileds()
+        clearFileds()
     });
 
 });
@@ -44,7 +44,7 @@ function errorMsg(err) {
         icon: 'error',
         title: 'Oops...',
         text: `${err}`,
-      })
+    })
 
 }
 
@@ -55,25 +55,39 @@ function clearFileds() {
 
 }
 
-function successMsg(finalResult, genderAll) { 
-    if(genderAll == 'male' && finalResult != '') {
-        successMsgMale(finalResult)
-    } else {
-        successMsgFemale(finalResult)
-    }
- }
+function successMsgMale(resultMale) {
+    
 
-function successMsgMale (finalResult) { 
-    console.log(finalResult)
+}
 
-    alert('male')
+function successMsgFemale(resultFemale) {
+    $('#alertResult').html(
+        `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>${resultFemale}</strong> You should check in on some of those fields below.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
 
- }
+        `
+);
 
- function successMsgFemale (finalResult) { 
-    console.log(finalResult)
+}
 
-    alert('female')
+function rendering() {
 
- }
+    $('#alertResult').html(
+        `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>${resultMale}</strong> You should check in on some of those fields below.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+
+        `
+);
+
+}
 
